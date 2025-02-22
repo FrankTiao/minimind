@@ -128,7 +128,7 @@ def train_epoch(epoch, wandb):
 
 def init_model(lm_config):
     """初始化模型和tokenizer"""
-    tokenizer = AutoTokenizer.from_pretrained('/kaggle/working/minimind/model/minimind_tokenizer')
+    tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer')
     model = MiniMindLM(lm_config).to(args.device)
     # 打印模型参数量
     Logger(f'LLM总参数量：{sum(p.numel() for p in model.parameters() if p.requires_grad) / 1e6:.3f} 百万')
@@ -194,7 +194,7 @@ if __name__ == "__main__":
     # 是否使用MoE结构
     parser.add_argument('--use_moe', default=False, type=bool)
     # 训练数据路径
-    parser.add_argument("--data_path", type=str, default="/kaggle/working/minimind/dataset/pretrain_hq.jsonl")
+    parser.add_argument("--data_path", type=str, default="./dataset/pretrain_hq.jsonl")
     args = parser.parse_args()
 
     # 初始化模型配置

@@ -129,7 +129,7 @@ def main():
     model, tokenizer = init_model(args)
 
     prompts = get_prompt_datas(args)
-    test_mode = int(input('[0] 自动测试\n[1] 手动输入\n'))
+    test_mode = 0 # int(input('[0] 自动测试\n[1] 手动输入\n'))
     messages = []
     for idx, prompt in enumerate(prompts if test_mode == 0 else iter(lambda: input('👶: '), '')):
         setup_seed(random.randint(0, 2048))

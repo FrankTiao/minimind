@@ -112,7 +112,7 @@ def train_epoch(epoch, wandb):
 
 def init_model(lm_config):
     """初始化模型和分词器"""
-    tokenizer = AutoTokenizer.from_pretrained('/kaggle/working/minimind/model/minimind_tokenizer')  # 加载自定义分词器
+    tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer')  # 加载自定义分词器
     model = MiniMindLM(lm_config)  # 初始化模型
     
     # 加载预训练权重
